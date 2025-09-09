@@ -24,6 +24,7 @@ return {
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
     'mfussenegger/nvim-dap-python',
+    'theHamsta/nvim-dap-virtual-text',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -148,5 +149,8 @@ return {
     }
 
     require('dap-python').setup 'python'
+    require('nvim-dap-virtual-text').setup {
+      virt_text_pos = 'eol',
+    }
   end,
 }
