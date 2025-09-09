@@ -493,7 +493,23 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
-      'saghen/blink.cmp',
+      {
+        'saghen/blink.cmp',
+        opts = {
+          completion = {
+            menu = {
+              source_name = {
+                text = function(ctx)
+                  if ctx.source_id == 'cmdline' then
+                    return
+                  end
+                  return ctx.source_name:sub(1, 4)
+                end,
+              },
+            },
+          },
+        },
+      },
     },
     config = function()
       -- Brief aside: **What is LSP?**
