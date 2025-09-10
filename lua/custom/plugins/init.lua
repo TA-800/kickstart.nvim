@@ -15,17 +15,29 @@ return {
         branch = 'master',
         build = 'make tiktoken',
         config = function()
-          require('CopilotChat').setup()
+          require('CopilotChat').setup {
+            headers = {
+              user = '👤 You',
+              assistant = '🤖 Copilot',
+            },
+          }
         end,
       },
     },
   },
-  { 'vyfor/cord.nvim', opts = {
-    editor = {
-      tooltip = 'Moving at the speed of thought',
+  {
+    'vyfor/cord.nvim',
+    opts = {
+      editor = {
+        tooltip = 'Moving at the speed of thought',
+      },
+      text = {
+        file_browser = false,
+        plugin_manager = false,
+      },
+      display = {
+        flavor = 'accent',
+      },
     },
-    display = {
-      flavor = 'accent',
-    },
-  } },
+  },
 }
