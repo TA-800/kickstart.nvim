@@ -7,6 +7,19 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      {
+        'nvim-lua/plenary.nvim',
+        branch = 'master',
+        build = 'make tiktoken',
+        config = function()
+          require('CopilotChat').setup()
+        end,
+      },
+    },
+  },
   { 'vyfor/cord.nvim', opts = {
     editor = {
       tooltip = 'Moving at the speed of thought',
