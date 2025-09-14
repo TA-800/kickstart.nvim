@@ -7,24 +7,7 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    dependencies = {
-      {
-        'nvim-lua/plenary.nvim',
-        branch = 'master',
-        build = 'make tiktoken',
-        config = function()
-          require('CopilotChat').setup {
-            headers = {
-              user = '👤 You',
-              assistant = '🤖 Copilot',
-            },
-          }
-        end,
-      },
-    },
-  },
+
   {
     'vyfor/cord.nvim',
     opts = {
@@ -37,6 +20,7 @@ return {
       },
       display = {
         flavor = 'accent',
+        swap_icons = true,
       },
     },
   },
