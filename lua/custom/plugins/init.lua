@@ -7,7 +7,31 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },
-
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      {
+        'nvim-lua/plenary.nvim',
+        branch = 'master',
+        config = function()
+          require('CopilotChat').setup {
+            headers = {
+              user = '👤 You',
+              assistant = '🤖 Copilot',
+            },
+            mappings = {
+              -- Remove the default q / C-c mappings
+              close = {
+                normal = '',
+                insert = '',
+              },
+              -- Don't specify callback
+            },
+          }
+        end,
+      },
+    },
+  },
   {
     'vyfor/cord.nvim',
     opts = {

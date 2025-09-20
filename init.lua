@@ -493,23 +493,7 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
-      {
-        'saghen/blink.cmp',
-        opts = {
-          completion = {
-            menu = {
-              source_name = {
-                text = function(ctx)
-                  if ctx.source_id == 'cmdline' then
-                    return
-                  end
-                  return ctx.source_name:sub(1, 4)
-                end,
-              },
-            },
-          },
-        },
-      },
+      'saghen/blink.cmp',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -776,7 +760,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
