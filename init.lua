@@ -161,6 +161,8 @@ vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
+vim.o.winborder = 'solid'
+
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
@@ -413,7 +415,9 @@ require('lazy').setup({
         --   },
         -- },
         defaults = {
-          border = false,
+          border = true,
+          borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+          path_display = { 'filename_first' },
         },
         -- pickers = {}
         extensions = {
@@ -636,7 +640,7 @@ require('lazy').setup({
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
-        float = { border = 'rounded', source = 'if_many' },
+        float = { border = 'solid', source = 'if_many' },
         underline = true,
         signs = vim.g.have_nerd_font and {
           text = {
