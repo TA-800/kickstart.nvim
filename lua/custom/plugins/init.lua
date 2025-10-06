@@ -55,4 +55,15 @@ return {
       },
     },
   },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },
+  },
+
+  -- Treesitter modules, :help nvim-treesitter-modules
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
 }
