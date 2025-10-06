@@ -163,6 +163,10 @@ vim.o.scrolloff = 10
 
 vim.o.winborder = 'solid'
 
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = vim.treesitter.foldexpr()
+vim.o.foldlevelstart = 99
+
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
