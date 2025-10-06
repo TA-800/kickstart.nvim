@@ -38,6 +38,22 @@ return {
       'nvim-lua/plenary.nvim', -- required
       'sindrets/diffview.nvim', -- optional - Diff integration
     },
+    config = function()
+      local actions = require 'diffview.actions'
+      require('diffview').setup {
+        keymaps = {
+          view = {
+            { 'n', 'q', actions.close, { desc = 'Close help menu' } },
+          },
+          file_panel = {
+            { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close help menu' } },
+          },
+          file_history_panel = {
+            { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close help menu' } },
+          },
+        },
+      }
+    end,
   },
   {
     'vyfor/cord.nvim',
