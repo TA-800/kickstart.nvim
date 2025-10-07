@@ -77,6 +77,8 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },
   },
 
+  'mbbill/undotree',
+
   -- Treesitter modules, :help nvim-treesitter-modules
   {
     'nvim-treesitter/nvim-treesitter-context',
