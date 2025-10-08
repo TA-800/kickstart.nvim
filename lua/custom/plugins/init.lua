@@ -14,18 +14,15 @@ return {
         'nvim-lua/plenary.nvim',
         branch = 'master',
         config = function()
-          require('CopilotChat').setup {
-            headers = {
-              user = '👤 You',
-              assistant = '🤖 Copilot',
-            },
+          local copilot = require 'CopilotChat'
+          copilot.setup {
             mappings = {
-              -- Remove the default q / C-c mappings
+              -- Remove the default mappings for closing the chat buffer
               close = {
                 normal = '',
                 insert = '',
+                callback = copilot.close,
               },
-              -- Don't specify callback
             },
           }
         end,
@@ -64,6 +61,21 @@ return {
       text = {
         file_browser = false,
         plugin_manager = false,
+        -- Ignore when interacting with copilot-chat
+        viewing = function(opts)
+          if string.find(opts.filename, 'copilot') then
+            return 'Thinking...'
+          else
+            return 'Viewing ' .. opts.filename
+          end
+        end,
+        editing = function(opts)
+          if string.find(opts.filename, 'copilot') then
+            return 'Thinking...'
+          else
+            return 'Editing ' .. opts.filename
+          end
+        end,
       },
       display = {
         flavor = 'accent',
